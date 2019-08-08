@@ -10,10 +10,10 @@ steps:
     projects: '**/*.csproj'
 
 - task: DotNetCoreCLI@2
-  displayName: 'Public the project - ${{ parameters.BuildConfiguration }}'
+  displayName: 'Publish the project - ${{ parameters.BuildConfiguration }}'
   inputs:
     command: 'publish'
     projects: '**/*.csproj'
     publishWebProjects: false
-    arguments: '--no-build --configuration ${{ parameters.buildConfiguration }} --output $(Build.ArtifcatStagingDirectory)/${{ parameters.BuildConfiguration }}'
+    arguments: '--no-build --configuration ${{ parameters.buildConfiguration }} --output $(Build.ArtifactStagingDirectory)/${{ parameters.BuildConfiguration }}'
     zipAfterPublish: true
